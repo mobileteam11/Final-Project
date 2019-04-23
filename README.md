@@ -32,16 +32,14 @@ catkin_make -j1
 ```
 
 ## Visualizing Odometry and Point Cloud Map
-After building up the code, you can download a sample ros bag file from [this link](https://drive.google.com/open?id=1sxApV5dmFf6UF1WJs1LW3-WQaRopNyDq) and put it in src/Final-Project/bag/ folder. Right under the catkin workspace, simply run the code below in command line will run rviz and see the visualized result.
+After building up the code, you can download a sample ros bag file from [this link](https://drive.google.com/open?id=1sxApV5dmFf6UF1WJs1LW3-WQaRopNyDq) and put it in Final-Project/bag/ folder. Right under the catkin workspace, simply run the code below in command line will run rviz and see the visualized result.
 ```
-./src/Final-Project/run.bash
+./src/Final-Project/run.sh
 ```
 
 ## Kitti Odometry Dataset to rosbag
 Kitti dataset are provided to allow the usage of the laser point clouds, gps data, the right
 camera image and the grayscale images. It provides the mapping of the training set to the raw data of the KITTI dataset.
-
-
 
 To run kitti data in our program, [kitti2bag](https://github.com/tomas789/kitti2bag) is used to transform kitti raw data to rosbag. First, download raw sequences **synced+rectified data** and **calibration** data from [The KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/raw_data.php). 
 

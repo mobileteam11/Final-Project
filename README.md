@@ -37,6 +37,12 @@ After building up the code, you can download a sample ros bag file from [this li
 ```
 ./src/LeGO-LOAM/run.sh
 ```
+or command in different terminal. change topic names from `/velodyne_points` and `/imu/data` to the topic name of the rosbag.
+```
+source ./devel/setup.bash
+roslaunch lego_loam run.launch
+rosbag play PATH_TO_BAG_FILE.bag --clock --topic /velodyne_points /imu/data
+```
 
 ## Kitti Odometry Dataset to rosbag
 Kitti dataset are provided to allow the usage of the laser point clouds, gps data, the right

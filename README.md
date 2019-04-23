@@ -23,6 +23,7 @@ To install and compile our code, please clone this respository in src/ under cat
 mkdir -p ./loam_ws/src/
 cd loam_ws/src/
 git clone https://github.com/mobileteam11/Final-Project.git
+mv Final-Project/ LeGO-LOAM/
 cd ..
 ```
 in /usr/local/lib/cmake/GTSAM/GTSAMConfig.cmake

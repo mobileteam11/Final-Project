@@ -35,7 +35,7 @@ catkin_make -j1
 ## Visualizing Odometry and Point Cloud Map
 After building up the code, you can download a sample ros bag file from [this link](https://drive.google.com/open?id=1sxApV5dmFf6UF1WJs1LW3-WQaRopNyDq) and put it in Final-Project/bag/ folder. Right under the catkin workspace, simply run the code below in command line will run rviz and see the visualized result.
 ```
-./src/Final-Project/run.sh
+./src/LeGO-LOAM/run.sh
 ```
 
 ## Kitti Odometry Dataset to rosbag

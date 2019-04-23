@@ -34,30 +34,41 @@ After building up the code, you can download a sample ros bag file from [this li
 ```
 
 ## Kitti Odometry Dataset to rosbag
-To run kitti data in our program, [kitti2bag](https://github.com/tomas789/kitti2bag) is used to transform kitti raw data to rosbag. First, download raw sequences from [The KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/raw_data.php). The sequences that provide ground truth are shown in the below table.
+Kitti dataset are provided to allow the usage of the laser point clouds, gps data, the right
+camera image and the grayscale images. It provides the mapping of the training set to the raw data of the KITTI dataset.
 
-Nr.     Sequence name     Start   End
----------------------------------------
-00: 2011_10_03_drive_0027 000000 004540
-01: 2011_10_03_drive_0042 000000 001100
-02: 2011_10_03_drive_0034 000000 004660
-03: 2011_09_26_drive_0067 000000 000800
-04: 2011_09_30_drive_0016 000000 000270
-05: 2011_09_30_drive_0018 000000 002760
-06: 2011_09_30_drive_0020 000000 001100
-07: 2011_09_30_drive_0027 000000 001100
-08: 2011_09_30_drive_0028 001100 005170
-09: 2011_09_30_drive_0033 000000 001590
-10: 2011_09_30_drive_0034 000000 001200
+
+
+To run kitti data in our program, [kitti2bag](https://github.com/tomas789/kitti2bag) is used to transform kitti raw data to rosbag. First, download raw sequences **synced+rectified data** and **calibration** data from [The KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/raw_data.php). 
+
+
+The sequences that provide ground truth are shown in the below table. The [odometry eval kit](http://kitti.is.tue.mpg.de/kitti/devkit_odometry.zip) includes description.
+
+The following table lists the name, start and end frame of each sequence that
+has been used to extract the visual odometry / SLAM training set
+
+| Nr. |Sequence name |Start | End |
+|---------------------------------------
+| 00 | 2011_10_03_drive_0027 | 000000 | 004540 |
+| 01 | 2011_10_03_drive_0042 | 000000 | 001100 |
+| 02 | 2011_10_03_drive_0034 | 000000 | 004660 |
+| 03 | 2011_09_26_drive_0067 | 000000 | 000800 |
+| 04 | 2011_09_30_drive_0016 | 000000 | 000270 |
+| 05 | 2011_09_30_drive_0018 | 000000 | 002760 |
+| 06 | 2011_09_30_drive_0020 | 000000 | 001100 |
+| 07 | 2011_09_30_drive_0027 | 000000 | 001100 |
+| 08 | 2011_09_30_drive_0028 | 001100 | 005170 |
+| 09 | 2011_09_30_drive_0033 | 000000 | 001590 |
+| 10 | 2011_09_30_drive_0034 | 000000 | 001200 |
 
 ## Result
 Our result of running Kitti Sequences are shown below. We compared between simulation result and groundtruth. In addition, the mapping result for Sequence 00, 05, and 08 of Kitti are shown below.
-![seq00](/Final-Project/result/00_cmp.png)
-![seq00](/Final-Project/result/00.png)
-![seq00](/Final-Project/result/00_error.png)
-![seq05](/Final-Project/result/05_cmp.png)
-![seq05](/Final-Project/result/05.png)
-![seq05](/Final-Project/result/05_error.png)
-![seq08](/Final-Project/result/08_cmp.png)
-![seq08](/Final-Project/result/08.png)
-![seq08](/Final-Project/result/08_error.png)
+![seq00](/result/00_cmp.png)
+![seq00](/result/00.png)
+![seq00](/result/00_error.png)
+![seq05](/result/05_cmp.png)
+![seq05](/result/05.png)
+![seq05](/result/05_error.png)
+![seq08](/result/08_cmp.png)
+![seq08](/result/08.png)
+![seq08](/result/08_error.png)

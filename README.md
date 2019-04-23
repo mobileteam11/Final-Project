@@ -17,7 +17,7 @@ make check
 make install
 ```
 
-## Installing
+## Installing and Compile
 To install and compile our code, please clone this respository in src/ under catkin worksspace.
 
 ```
@@ -27,10 +27,10 @@ cd ..
 catkin_make -j1
 ```
 
-## Compile
-After building up the code, you can download the sample ros bag file from [this link](https://drive.google.com/open?id=1sxApV5dmFf6UF1WJs1LW3-WQaRopNyDq) and put it in src/Final-Project/bag/ folder. Right under the catkin workspace, simply run the code below in command line will run rviz and see the visualized result.
+## Visualizing Odometry and Point Cloud Map
+After building up the code, you can download a sample ros bag file from [this link](https://drive.google.com/open?id=1sxApV5dmFf6UF1WJs1LW3-WQaRopNyDq) and put it in src/Final-Project/bag/ folder. Right under the catkin workspace, simply run the code below in command line will run rviz and see the visualized result.
 ```
-.src/Final-Project/run.bash
+./src/Final-Project/run.bash
 ```
 
 ## Kitti Odometry Dataset to rosbag

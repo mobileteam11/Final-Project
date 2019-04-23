@@ -1,4 +1,4 @@
-source ../../loam_ws/devel/setup.bash
+source devel/setup.bash
 trap "exit" INT TERM ERR
 trap "kill 0" EXIT
 roslaunch lego_loam run.launch&

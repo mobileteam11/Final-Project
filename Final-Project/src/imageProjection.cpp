@@ -153,8 +153,8 @@ public:
         size_t lowerIdx, upperIdx;
         float dx, dy, dz, angle;
 
-        for (size_t j = 0; j < Horizon_SCAN; ++j){
-            for (size_t i = 0; i < groundScanInd; ++i){
+        for (size_t j = 0; j < Horizon_SCAN; j++){
+            for (size_t i = 0; i < groundScanInd; i++){
 
                 lowerIdx = i * Horizon_SCAN + j;
                 upperIdx = (i+1) * Horizon_SCAN + j;
@@ -178,16 +178,16 @@ public:
             }
         }
 
-        for (size_t i = 0; i < N_SCAN; ++i){
-            for (size_t j = 0; j < Horizon_SCAN; ++j){
+        for (size_t i = 0; i < N_SCAN; i++){
+            for (size_t j = 0; j < Horizon_SCAN; j++){
                 if (groundMat.at<int8_t>(i,j) == 1 || distMat.at<float>(i,j) == FLT_MAX){
                     labelMat.at<int>(i,j) = -1;
                 }
             }
         }
         if (pubGroundPcd.getNumSubscribers() != 0){
-            for (size_t i = 0; i <= groundScanInd; ++i){
-                for (size_t j = 0; j < Horizon_SCAN; ++j){
+            for (size_t i = 0; i <= groundScanInd; i++){
+                for (size_t j = 0; j < Horizon_SCAN; j++){
                     if (groundMat.at<int8_t>(i,j) == 1)
                         groundPcd->push_back(fullPcd->points[j + i*Horizon_SCAN]);
                 }
@@ -197,17 +197,17 @@ public:
 
     void cloudSegmentation(){
         // takes a single scan’s point cloud and projects it onto a range image for segmentation.
-        for (size_t i = 0; i < N_SCAN; ++i)
-            for (size_t j = 0; j < Horizon_SCAN; ++j)
+        for (size_t i = 0; i < N_SCAN; i++)
+            for (size_t j = 0; j < Horizon_SCAN; j++)
                 if (labelMat.at<int>(i,j) == 0)
                     labelComponents(i, j);
 
         int sizeOfSegCloud = 0;
-        for (size_t i = 0; i < N_SCAN; ++i) {
+        for (size_t i = 0; i < N_SCAN; i++) {
 
             PcdMsg.startRingIndex[i] = sizeOfSegCloud-1 + 5;
 
-            for (size_t j = 0; j < Horizon_SCAN; ++j) {
+            for (size_t j = 0; j < Horizon_SCAN; j++) {
                 if (labelMat.at<int>(i,j) > 0 || groundMat.at<int8_t>(i,j) == 1){
                     if (labelMat.at<int>(i,j) == 999999){
                         if (i > groundScanInd && j % 5 == 0){
@@ -225,7 +225,7 @@ public:
                     PcdMsg.segmentedCloudColInd[sizeOfSegCloud] = j;
                     PcdMsg.segmentedCloudRange[sizeOfSegCloud]  = distMat.at<float>(i,j);
                     segmentedPcd->push_back(fullPcd->points[j + i*Horizon_SCAN]);
-                    ++sizeOfSegCloud;
+                    sizeOfSegCloud++;
                 }
             }
 
@@ -233,8 +233,8 @@ public:
         }
 
         if (pubSegmentedPcdPure.getNumSubscribers() != 0){
-            for (size_t i = 0; i < N_SCAN; ++i){
-                for (size_t j = 0; j < Horizon_SCAN; ++j){
+            for (size_t i = 0; i < N_SCAN; i++){
+                for (size_t j = 0; j < Horizon_SCAN; j++){
                     if (labelMat.at<int>(i,j) > 0 && labelMat.at<int>(i,j) != 999999){
                         segmentedPcdPure->push_back(fullPcd->points[j + i*Horizon_SCAN]);
                         segmentedPcdPure->points.back().intensity = labelMat.at<int>(i,j);
@@ -252,7 +252,7 @@ public:
 
         cloudSize = laserPcd->points.size();
 
-        for (size_t i = 0; i < cloudSize; ++i){
+        for (size_t i = 0; i < cloudSize; i++){
             // obtain current point coordinates
             currentPt.x = laserPcd->points[i].x;
             currentPt.y = laserPcd->points[i].y;
@@ -304,7 +304,7 @@ public:
             fromIndX = queueIndX[queueStartInd];
             fromIndY = queueIndY[queueStartInd];
             --queueSize;
-            ++queueStartInd;
+            queueStartInd++;
             labelMat.at<int>(fromIndX, fromIndY) = labelCount;
 
             for (auto iter = neighborIterator.begin(); iter != neighborIterator.end(); ++iter){
@@ -339,15 +339,15 @@ public:
 
                     queueIndX[queueEndInd] = thisIndX;
                     queueIndY[queueEndInd] = thisIndY;
-                    ++queueSize;
-                    ++queueEndInd;
+                    queueSize++;
+                    queueEndInd++;
 
                     labelMat.at<int>(thisIndX, thisIndY) = labelCount;
                     lineCountFlag[thisIndX] = true;
 
                     allPushedIndX[allPushedIndSize] = thisIndX;
                     allPushedIndY[allPushedIndSize] = thisIndY;
-                    ++allPushedIndSize;
+                    allPushedIndSize++;
                 }
             }
         }
@@ -358,17 +358,17 @@ public:
             feasibleSegment = true;
         else if (allPushedIndSize >= segmentValidPointNum){
             int lineCount = 0;
-            for (size_t i = 0; i < N_SCAN; ++i)
+            for (size_t i = 0; i < N_SCAN; i++)
                 if (lineCountFlag[i] == true)
-                    ++lineCount;
+                    lineCount++;
             if (lineCount >= segmentValidLineNum)
                 feasibleSegment = true;            
         }
 
         if (feasibleSegment == true){
-            ++labelCount;
+            labelCount++;
         }else{
-            for (size_t i = 0; i < allPushedIndSize; ++i){
+            for (size_t i = 0; i < allPushedIndSize; i++){
                 labelMat.at<int>(allPushedIndX[i], allPushedIndY[i]) = 999999;
             }
         }

@@ -48,7 +48,7 @@ The following table lists the name, start and end frame of each sequence that
 has been used to extract the visual odometry / SLAM training set
 
 | Nr. |Sequence name |Start | End |
-|---------------------------------------
+| --- | --- | --- | --- |
 | 00 | 2011_10_03_drive_0027 | 000000 | 004540 |
 | 01 | 2011_10_03_drive_0042 | 000000 | 001100 |
 | 02 | 2011_10_03_drive_0034 | 000000 | 004660 |

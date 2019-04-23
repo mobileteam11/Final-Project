@@ -9,7 +9,7 @@ LeGO-LOAM, a lightweight and ground-optimized lidar odometry and mapping method,
 - [gtsam](https://github.com/borglab/gtsam). GTSAM is a library of C++ classes that implement smoothing and mapping (SAM). You can install it by following code.
 ```
 git clone https://bitbucket.org/gtborg/gtsam.git
-cd ~/gtsam
+cd gtsam/
 mkdir build
 cd build
 cmake ..

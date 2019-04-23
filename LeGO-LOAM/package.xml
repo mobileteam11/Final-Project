@@ -2,13 +2,13 @@
 <package>
   <name>lego_loam</name>
   <version>1.0.0</version>
-  <description>LeGO-LOAM from IROS 2018</description>
+  <description>Mobile Robotics Team 11</description>
 
-  <maintainer email="xxx@xxx.xxx">Tixiao Shan</maintainer>
+  <maintainer email="xxx@umich.edu">Team 11</maintainer>
 
   <license>BSD</license>
 
-  <author >Tixiao Shan</author>
+  <author >Team 11</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 

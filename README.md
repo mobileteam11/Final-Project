@@ -19,11 +19,15 @@ make install
 
 ## Installing and Compile
 To install and compile our code, please clone this respository in src/ under catkin worksspace.
-
 ```
-cd ~/catkin_ws/src
+mkdir -p ./loam_ws/src/
+cd loam_ws/src/
 git clone https://github.com/mobileteam11/Final-Project.git
 cd ..
+```
+in /usr/local/lib/cmake/GTSAM/GTSAMConfig.cmake
+change :17 `find_dependency` to `find_package`
+```
 catkin_make -j1
 ```
 

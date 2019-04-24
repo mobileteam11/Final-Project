@@ -1,6 +1,8 @@
 # Final-Project
 This is Team 11's final project git repository for EECS 568: Mobile Robotics. The title of our project is **Implementing LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping**. Team members include: Bowen Mu, Chien Erh Lin, Haochen Wu, and Weilin Xu.
 
+<a href="https://imgflip.com/gif/2zazp8"><img src="https://i.imgflip.com/2zazp8.gif" title="made at imgflip.com"/></a>
+
 ## Abstract
 LeGO-LOAM, a lightweight and ground-optimized lidar odometry and mapping method, is able to do six degree-of-freedom pose estimation for real time with ground vehicles \cite{legoloam2018}. This project re-implemented LeGO-LOAM which reduced computational expense while keeping similar accuracy compared to LOAM method. The whole LeGO-LOAM system is implemented in Robot Operating System (ROS). The data used for simulation is raw data (with Velodyne LiDAR data and IMU) from KITTI odometry benchmark dataset. Sequences 00, 05, and 08 are tested in our project. The mapping and odometry results of these sequences are presented in this report. Our code is public in [this GitHub Repository](https://github.com/mobileteam11/Final-Project). Video of implementing LeGO-LOAM on Kitti sequence 00 and sequence 08 are available at [youtube1](https://youtu.be/z3yXCRAMC18) and [youtube2](https://youtu.be/nJ74Uk6m10U).
 
